@@ -24,16 +24,17 @@ def extract(tag_list):
 
 def target_command(tags, callback):
     words, tags = extract(tags)
-    if len(tags) == 3 and tags == ('VB', 'NN'):
+    print(words, tags, tags == ['VB', 'NN'])
+    if len(tags) == 2 and tags == ['VB', 'NN']:
         callback(*words)
 
-    if len(tags) == 2 and tags == ('VB', 'DT', 'NN'):
+    if len(tags) == 3 and tags == ['VB', 'DT', 'NN']:
         callback(words[0], words[2])
 
 
 def target_player(tags, callback):
     words, tags = extract(tags)
-    if len(tags) == 1 and tags == ('VB'):
+    if len(tags) == 1:
         return callback(words[0])
 
 
@@ -60,8 +61,11 @@ class Engine:
                                                   self.player, self)):
             return
 
+        if target_player(tags,
+                         lambda verb: self.player.do_action(verb, None, self)):
+            return
 
-
+        print('dont know how to ' + string)
 
     def report_error(self, error):
         print('error: {}'.format(error))
