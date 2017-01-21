@@ -1,7 +1,7 @@
-from things.takable import takable
+from things.takeable import Takeable
 
 
-class Key(takable):
+class Key(Takeable):
     name = "key"
 
     def __init__(self, engine):
