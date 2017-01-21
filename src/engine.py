@@ -4,10 +4,10 @@ from textblob import TextBlob
 WORLD_OBJECT_TYPES = []
 
 
-def register(clazz):
+def register(*classes):
     # global WORLD_OBJECT_TYPES
-    WORLD_OBJECT_TYPES.append(clazz)
-    return clazz
+    for clazz in classes:
+        WORLD_OBJECT_TYPES.append(clazz)
 
 
 class Engine:
@@ -25,7 +25,7 @@ class Engine:
         if string == "quit":
             self.running = False
             return
-        
+
         tags = TextBlob(string.lower()).pos_tags
         noun = None
         verb = None

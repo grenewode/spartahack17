@@ -1,10 +1,8 @@
-from engine import register
 from worldobject import WorldObject
 from thing import Thing
 from description import Description
 
 
-@register
 class Room(WorldObject):
     name = "Room"
 

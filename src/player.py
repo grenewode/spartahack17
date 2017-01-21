@@ -1,9 +1,6 @@
-from engine import register
 from worldobject import WorldObject
-#from things.holdable import Holdable
 
 
-@register
 class Player(WorldObject):
 
     def __init__(self, engine):

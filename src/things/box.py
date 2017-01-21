@@ -1,9 +1,7 @@
-from engine import register
 from thing import Thing
 from description import Description
 
 
-@register
 class Box(Thing):
     name = "box"
 

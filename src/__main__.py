@@ -1,16 +1,16 @@
-from things import sword, picture
-from attrs import color
+from engine import Engine, register
+import player
+import room
 
-from engine import Engine, WORLD_OBJECT_TYPES
-from player import Player
-from room import Room
+
+from things import box, sword, picture
+register(box.Box, sword.Sword, picture.Picture, room.Room, player.Player)
 
 if __name__ == "__main__":
-    print(WORLD_OBJECT_TYPES)
     engine = Engine()
 
-    engine.player = engine.build(Player)
-    engine.room = engine.build(Room)
+    engine.player = engine.build(player.Player)
+    engine.room = engine.build(room.Room)
 
     engine.show_long_description(engine.room.describe())
 
