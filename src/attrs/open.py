@@ -1,6 +1,5 @@
 from attrs.attribute import Attribute
 
-
 class Open(Attribute):
 
     def __init__(self):

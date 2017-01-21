@@ -1,5 +1,6 @@
 from attrs.open import Open
 from thing import Thing
+from attrs.locked import Locked
 #from room import Room
 
 class Door(Thing):
@@ -22,10 +23,10 @@ class Door(Thing):
         engine.say("The door is closed.")
 
     def enter(self, source, engine):
-        if self.get_attr(Open).open = True
+        if self.get_attr(Open).open:
             engine.room = engine.build(Room)
             engine.show_long_description(engine.room.describe())
-        elif self.get_attr(Locked).locked = True
+        elif self.get_attr(Locked).locked:
             engine.say("The door is locked.")
-        else
+        else:
             engine.say("The door is closed m8.")
