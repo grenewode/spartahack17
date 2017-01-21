@@ -1,4 +1,5 @@
 from random import choice
+from textblob import TextBlob
 
 WORLD_OBJECT_TYPES = []
 
@@ -21,27 +22,22 @@ class Engine:
         print(*self.room.describe().long(), sep='\n')
 
     def parse_string(self, string):
-        words = string.split(" ")
-        if words == ['look']:
-            self.show_long_description(self.room.describe())
-            return
-        if words == ['quit']:
-            self.running = False
-            return
+        tags = TextBlob(string.lower()).pos_tags
+        noun = None
+        verb = None
 
-        if len(words) > 2 and words[:2] == ['look', 'at']:
-            spec = words[2:]
-            if spec[0] == 'the':
-                del spec[0]
-            thing = self.room.search(spec[-1])
-            if thing is None:
-                self.say('there is no ' + ' '.join(spec))
-            else:
-                self.it = thing
-                print('You look at the ' + self.it.name)
-        else:
-            self.player.do_action(words[0], None, self)
-            
+        for (word, tag) in tags:
+            if tag == 'VB':
+                verb = word
+                break
+        for (word, tag) in tags:
+            if tag == 'NN':
+                noun = word
+                break
+        print(noun, verb)
+        target = self.room.search(noun)
+        if target:
+            target.do_action(verb, self.player, self)
 
     def report_error(self, error):
         print('error: {}'.format(error))

@@ -9,6 +9,10 @@ class Sword(Weapon):
 
     def __init__(self, engine):
         super().__init__(engine)
+        self.register_action('take', self.take)
+
+    def take(self, source, engine):
+        source.add(self)
 
     def describe(self):
         return Description('sword')
