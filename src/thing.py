@@ -6,7 +6,7 @@ class Thing(WorldObject):
 
     def __init__(self, engine):
         super().__init__(engine)
-        self.set_attr(Location())
+        self.location = Location()
 
     def describe(self):
         return self.name
