@@ -10,6 +10,27 @@ def register(*classes):
         WORLD_OBJECT_TYPES.append(clazz)
 
 
+def extract_tags(tag_list):
+    return [tag[1] for tag in tag_list]
+
+
+def extract_words(tag_list):
+    return [tag[0] for tag in tag_list]
+
+
+def extract(tag_list):
+    return (extract_words(tag_list), extract_tags(tag_list))
+
+
+def target_command(tags, callback):
+    words, tags = extract(tags)
+    if len(tags) == 3 and tags == ('VB', 'NN'):
+        callback(*words)
+
+    if len(tags) == 2 and tags == ('VB', 'DT', 'NN'):
+        callback(words[0], words[2])
+
+
 class Engine:
 
     def __init__(self):
@@ -27,21 +48,9 @@ class Engine:
             return
 
         tags = TextBlob(string.lower()).pos_tags
-        noun = None
-        verb = None
-
-        for (word, tag) in tags:
-            if tag == 'VB':
-                verb = word
-                break
-        for (word, tag) in tags:
-            if tag == 'NN':
-                noun = word
-                break
-        print(noun, verb)
-        target = self.room.search(noun)
-        if target:
-            target.do_action(verb, self.player, self)
+        target_command(tags,
+                       lambda verb, noun:
+                       self.room.search_and_do(noun, verb, self.player, self))
 
     def report_error(self, error):
         print('error: {}'.format(error))

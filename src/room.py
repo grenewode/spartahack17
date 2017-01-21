@@ -1,6 +1,5 @@
 from worldobject import WorldObject
 from thing import Thing
-from description import Description
 
 
 class Room(WorldObject):
@@ -16,6 +15,11 @@ class Room(WorldObject):
             if thing.name == name:
                 return thing
         return None
+
+    def search_and_do(self, name, action, *args, **kwargs):
+        target = self.search(name)
+        if target:
+            target.do_action(action, *args, **kwargs)
 
     def describe(self):
         #children=[thing.describe() for thing in self.things]
