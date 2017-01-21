@@ -1,5 +1,5 @@
-import things
-import attrs
+from things import sword, picture
+from attrs import color
 
 from engine import Engine, WORLD_OBJECT_TYPES
 from player import Player

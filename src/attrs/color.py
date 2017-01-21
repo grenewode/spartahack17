@@ -1,4 +1,3 @@
-from engine import register
 from random import choice
 
 COLORS = ['red', 'green', 'blue']

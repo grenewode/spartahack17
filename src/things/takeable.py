@@ -1,7 +1,7 @@
 from things import Thing
 
 
-class Holdable(Thing):
+class Takeable(Thing):
 
     def __init__(self, engine):
         super().__init__(engine)

@@ -1,7 +1,7 @@
-from things.holdable import Holdable
+from things.takeable import Takeable
 
 
-class Weapon(Holdable):
+class Weapon(Takeable):
 
     def __init__(self, engine):
         super().__init__(engine)

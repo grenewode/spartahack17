@@ -14,6 +14,16 @@ class WorldObject:
 
     def __init__(self, engine):
         self.actions = {}
+        self.attributes = {}
+
+    def set_attr(self, value):
+        self.attributes[type(value)] = value
+
+    def get_attr(self, typeinfo):
+        return self.attributes[typeinfo]
+
+    def has_attr(self, typeinfo):
+        return typeinfo in self.attributes
 
     def register_action(self, action_name, callback):
         """
