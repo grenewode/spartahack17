@@ -12,5 +12,3 @@ class Sword(Weapon):
     def take(self, source, engine):
         source.add(self)
 
-    def describe(self):
-        return Description('sword')
