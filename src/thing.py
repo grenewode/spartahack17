@@ -7,4 +7,7 @@ class Thing(WorldObject):
         super().__init__(engine)
 
     def describe(self):
-        return self.namem
+        return self.name
+        
+    def desc_attrs(self):
+        return ','.join([attr.describe() for attr in self.attributes.values()])

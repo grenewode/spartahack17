@@ -19,5 +19,5 @@ class Room(WorldObject):
 
     def describe(self):
         #children=[thing.describe() for thing in self.things]
-        return ["You are in a room"] + ['There is a ' + child.describe() + ' in the ' + self.name
+        return ["You are in a room"] + ['There is a '+child.desc_attrs()+ ' ' + child.describe() + ' in the ' + self.name #+'\n It is '+child.desc_attrs()
                                  for child in self.things]
