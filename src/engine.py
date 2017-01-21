@@ -22,6 +22,10 @@ class Engine:
         print(*self.room.describe().long(), sep='\n')
 
     def parse_string(self, string):
+        if string == "quit":
+            self.running = False
+            return
+        
         tags = TextBlob(string.lower()).pos_tags
         noun = None
         verb = None

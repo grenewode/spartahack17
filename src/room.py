@@ -22,3 +22,7 @@ class Room(WorldObject):
     def describe(self):
         return Description('room', children=[thing.describe()
                                              for thing in self.things])
+        
+        [self.short()] + [desc + ' in the ' + self.name
+                                 for child in self.children
+                                 for desc in child.long()]
