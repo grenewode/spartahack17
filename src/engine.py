@@ -1,5 +1,7 @@
 from random import choice
-from textblob import TextBlob
+# from textblob import TextBlob
+from textblob import Blobber
+from textblob.taggers import NLTKTagger, PatternTagger
 
 WORLD_OBJECT_TYPES = []
 
@@ -22,20 +24,19 @@ def extract(tag_list):
     return (extract_words(tag_list), extract_tags(tag_list))
 
 
-def target_command(tags, callback):
+def run_command(engine, string, blobber):
+    tags = blobber(string.lower()).pos_tags
     words, tags = extract(tags)
     print(words, tags, tags == ['VB', 'NN'])
-    if len(tags) == 2 and tags == ['VB', 'NN']:
-        callback(*words)
-
-    if len(tags) == 3 and tags == ['VB', 'DT', 'NN']:
-        callback(words[0], words[2])
-
-
-def target_player(tags, callback):
-    words, tags = extract(tags)
-    if len(tags) == 1:
-        return callback(words[0])
+    if tags == ['VB', 'NN']:
+        verb, noun = tuple(words)
+        # print(verb, noun)
+        return engine.room.search_and_do(noun, verb, engine.player, engine)
+    elif tags == ['VB', 'DT', 'NN']:
+        verb, noun = (words[0], words[2])
+        return engine.room.search_and_do(noun, verb, engine.player, engine)
+    elif len(tags) == 1:
+        return engine.player.do_action(words[0], None, engine)
 
 
 class Engine:
@@ -54,15 +55,9 @@ class Engine:
             self.running = False
             return
 
-        tags = TextBlob(string.lower()).pos_tags
-        if target_command(tags,
-                          lambda verb, noun:
-                          self.room.search_and_do(noun, verb,
-                                                  self.player, self)):
+        if run_command(self, string, Blobber(pos_tagger=NLTKTagger())):
             return
-
-        if target_player(tags,
-                         lambda verb: self.player.do_action(verb, None, self)):
+        if run_command(self, string, Blobber(pos_tagger=PatternTagger())):
             return
 
         print('dont know how to ' + string)

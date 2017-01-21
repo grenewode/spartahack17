@@ -41,7 +41,7 @@ class WorldObject:
         """
         Does an action
         """
-        if action not in self.actions:
-            engine.report_error("action not found")
-        else:
+        if action in self.actions:
             self.actions[action](source, engine)
+            return True
+        return False

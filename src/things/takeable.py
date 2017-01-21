@@ -9,4 +9,5 @@ class Takeable(Thing):
         self.register_action('take', self.take)
 
     def take(self, source, engine):
+        engine.say('You have a ' + self.name)
         source.add(self)
