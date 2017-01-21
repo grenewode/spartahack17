@@ -7,4 +7,4 @@ class Thing(WorldObject):
         super().__init__(engine)
 
     def describe(self):
-        return 'You see a thing'
+        return self.name
