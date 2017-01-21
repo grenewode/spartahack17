@@ -1,6 +1,6 @@
 from attrs.open import Open
 from thing import Thing
-from room import Room
+#from room import Room
 
 class Door(Thing):
     name = "door"
