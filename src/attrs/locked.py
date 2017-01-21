@@ -4,10 +4,10 @@ class Locked(Attribute):
 
     def __init__(self):
         super().__init__()
-        self.Locked = False
+        self.locked = False
 
     def describe(self):
-        if self.Locked:
-            return "The door is locked."
+        if self.locked:
+            return "locked."
         else:
-            return "The door is unlocked,"
+            return "unlocked,"
