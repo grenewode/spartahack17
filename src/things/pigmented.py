@@ -1,5 +1,5 @@
 from thing import Thing
-from attrs.color import Color
+from resources.attrs.color import Color
 
 
 class Pigmented(Thing):

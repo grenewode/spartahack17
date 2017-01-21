@@ -3,14 +3,6 @@ from random import choice
 from textblob import Blobber
 from textblob.taggers import NLTKTagger, PatternTagger
 
-WORLD_OBJECT_TYPES = []
-
-
-def register(*classes):
-    # global WORLD_OBJECT_TYPES
-    for clazz in classes:
-        WORLD_OBJECT_TYPES.append(clazz)
-
 
 def extract_tags(tag_list):
     return [tag[1] for tag in tag_list]
@@ -41,7 +33,9 @@ def run_command(engine, string, blobber):
 
 class Engine:
 
-    def __init__(self):
+    def __init__(self, types):
+        self.types = types
+        print(self.types)
         self.room = None
         self.player = None
         self.it = None
@@ -70,6 +64,6 @@ class Engine:
 
     def build(self, typeinfo, *args, **kwargs):
         candidates = [world_object_type
-                      for world_object_type in WORLD_OBJECT_TYPES
+                      for world_object_type in self.types
                       if issubclass(world_object_type, typeinfo)]
         return choice(candidates)(self, *args, **kwargs)

@@ -1,6 +1,6 @@
 from worldobject import WorldObject
 from thing import Thing
-from things.door import Door
+# from things.door import Door
 
 class Room(WorldObject):
     name = "Room"

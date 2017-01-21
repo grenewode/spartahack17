@@ -1,5 +1,6 @@
 from worldobject import WorldObject
-from attrs.location import Location
+from resources.attrs.location import Location
+
 
 class Thing(WorldObject):
 
@@ -9,6 +10,6 @@ class Thing(WorldObject):
 
     def describe(self):
         return self.name
-        
+
     def desc_attrs(self):
         return ','.join([attr.describe() for attr in self.attributes.values()])

@@ -1,7 +1,8 @@
-from attrs.open import Open
+from resources.attrs.open import Open
 from thing import Thing
-from attrs.locked import Locked
+from resources.attrs.locked import Locked
 #from room import Room
+
 
 class Door(Thing):
     name = "door"
@@ -30,3 +31,6 @@ class Door(Thing):
             engine.say("The door is locked.")
         else:
             engine.say("The door is closed m8.")
+
+
+exports = Door

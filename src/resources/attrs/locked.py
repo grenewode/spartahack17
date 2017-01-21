@@ -11,3 +11,5 @@ class Locked(Attribute):
             return "The door is locked."
         else:
             return "The door is unlocked,"
+
+exports = Locked

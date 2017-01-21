@@ -11,3 +11,6 @@ class Open(Attribute):
             return "Open"
         else:
             return "Closed"
+
+
+exports = Open

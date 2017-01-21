@@ -9,3 +9,4 @@ class Key(Takeable):
 
     def unlock(self, source, engine):
         engine.say("It's unlocked.")
+exports = Key
