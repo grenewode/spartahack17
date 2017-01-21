@@ -5,6 +5,3 @@ class Thing(WorldObject):
 
     def __init__(self, engine):
         super().__init__(engine)
-
-    def describe(self):
-        return 'You see a thing'

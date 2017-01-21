@@ -45,9 +45,3 @@ class WorldObject:
             engine.report_error("action not found")
         else:
             self.actions[action](source, engine)
-
-    def describe(self):
-        """
-        Called by the world to get a description of the object.
-        """
-        return "You see nothing"
