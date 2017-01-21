@@ -3,8 +3,10 @@ import player
 import room
 
 
-from things import box, sword, picture, door, bomb, key
-register(box.Box, sword.Sword, picture.Picture, room.Room, player.Player, door.Door, bomb.Bomb, key.Key)
+from things import box, sword, picture, door, bomb, key, egg, lasersword, sliceofbread, whiterabbit, doombringer
+register(box.Box, sword.Sword, picture.Picture, room.Room, player.Player, door.Door, 
+         bomb.Bomb, key.Key, egg.Egg, lasersword.Lasersword, sliceofbread.SliceofBread, whiterabbit.Snowbunny, doombringer.DoomBringer
+         )
 
 if __name__ == "__main__":
     engine = Engine()
