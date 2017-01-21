@@ -1,5 +1,6 @@
 from attrs.open import Open
 from thing import Thing
+from room import Room
 
 class Door(Thing):
     name = "door"
@@ -9,6 +10,7 @@ class Door(Thing):
         self.set_attr(Open())
         self.register_action('open', self.open)
         self.register_action('close', self.close)
+        self.register_action('enter', self.enter)
 
     def open(self, source, engine):
         self.get_attr(Open).open = True
@@ -17,3 +19,7 @@ class Door(Thing):
     def close(self, source, engine):
         self.get_attr(Open).open = False
         engine.say("The door is closed.")
+
+    def enter(self, source, engine):
+        engine.room = engine.build(Room)
+        engine.show_long_description(engine.room.describe())
