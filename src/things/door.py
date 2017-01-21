@@ -6,6 +6,7 @@ class Door(Thing):
 
     def __init__(self, engine):
         super().__init__(engine)
+        self.set_attr(Open())
         self.register_action('open', self.open)
         self.register_action('close', self.close)
 
