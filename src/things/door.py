@@ -1,3 +1,4 @@
+from attrs.open import Open
 class Door():
     name = "door"
 
@@ -8,10 +9,9 @@ class Door():
         self.register_action('enter', self.enter)
 
     def open(self, source, engine):
-        source.open(self)
+        self.get_attr(Open).open = True
+        engine.say("The door is opened.")
 
     def close(self, source, engine):
-        source.close(self)
-
-    def enter(self, source, engine):
-        source.enter(self)
+        self.get_attr(Open).open = False
+        engine.say("The door is closed.")
