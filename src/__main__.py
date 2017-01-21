@@ -3,8 +3,8 @@ import player
 import room
 
 
-from things import box, sword, picture
-register(box.Box, sword.Sword, picture.Picture, room.Room, player.Player)
+from things import box, sword, picture, door
+register(box.Box, sword.Sword, picture.Picture, room.Room, player.Player, door.Door)
 
 if __name__ == "__main__":
     engine = Engine()
