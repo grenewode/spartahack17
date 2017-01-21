@@ -1,18 +1,10 @@
 from worldobject import WorldObject
 
+
 class Thing(WorldObject):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, engine):
+        super().__init__(engine)
 
-class ThingFactory():
-
-    def __init__(self):
-        self.box = None
-
-    def generate_thing(self, engine):
-        self.box = Box()
-        #RANDOMIZE Later
-
-    def get_thing(self):
-        return self.box
+    def describe(self):
+        return 'You see a thing'

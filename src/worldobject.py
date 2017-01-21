@@ -7,12 +7,12 @@ class WorldObject:
     Actions are mappings from name -> behavior, which are how the state of the
     world is changed.
 
-    Also, every WorldObject should set name to some english value, which is used
-    to reference the object in the real world
+    Also, every WorldObject should set name to some english value, which is
+    used to reference the object in the real world
     """
     name = None
 
-    def __init__(self):
+    def __init__(self, engine):
         self.actions = {}
 
     def register_action(self, action_name, callback):
@@ -34,10 +34,10 @@ class WorldObject:
         if action not in self.actions:
             engine.report_error("action not found")
         else:
-            self.actions[action](self, source, engine)
-            
+            self.actions[action](source, engine)
+
     def describe(self):
         """
         Called by the world to get a description of the object.
         """
-        return ['this is a ' + self.name] + [desc for attr in self.attributes for desc in attr.describe()]
+        return "You see nothing"

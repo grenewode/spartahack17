@@ -1,10 +1,16 @@
-from engine import Engine
-from player import Player
+import things
+import attrs
 
+from engine import Engine, WORLD_OBJECT_TYPES
+from player import Player
+from room import Room
 
 if __name__ == "__main__":
+    print(WORLD_OBJECT_TYPES)
     engine = Engine()
-    engine.player = Player()
+
+    engine.player = engine.build(Player)
+    engine.room = engine.build(Room)
 
     while True:
         command = input(">> ")
