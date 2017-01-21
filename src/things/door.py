@@ -1,4 +1,6 @@
 from attrs.open import Open
+from thing import Thing
+
 class Door(Thing):
     name = "door"
 
@@ -6,7 +8,7 @@ class Door(Thing):
         super().__init__(engine)
         self.register_action('open', self.open)
         self.register_action('close', self.close)
-        self.register_action('enter', self.enter) #work on this later, should trigger room generation
+        self.register_action('enter', self.enter)
 
     def open(self, source, engine):
         self.get_attr(Open).open = True
