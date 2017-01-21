@@ -1,12 +1,13 @@
 from random import choice
+from attrs.attribute import Attribute
 
 COLORS = ['red', 'green', 'blue']
 
 
-class Color:
+class Color(Attribute):
 
     def __init__(self):
-        # super().__init__(self, engine)
+        super().__init__(self)
         self.color = choice(COLORS)
 
     def describe(self):

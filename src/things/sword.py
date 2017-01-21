@@ -1,5 +1,4 @@
 from things.weapon import Weapon
-from description import Description
 
 
 class Sword(Weapon):

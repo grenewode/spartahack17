@@ -1,6 +1,5 @@
 from worldobject import WorldObject
 from thing import Thing
-from description import Description
 
 
 class Room(WorldObject):

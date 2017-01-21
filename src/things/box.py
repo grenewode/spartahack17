@@ -1,5 +1,4 @@
 from thing import Thing
-from description import Description
 
 
 class Box(Thing):
