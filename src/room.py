@@ -18,10 +18,12 @@ class Room(WorldObject):
 
     def search_and_do(self, name, action, source, engine, *args, **kwargs):
         target = self.search(name)
+
         if target:
-            target.do_action(action, source, engine, *args, **kwargs)
+            return target.do_action(action, source, engine, *args, **kwargs)
         else:
             engine.say('could not find a ' + name)
+        return True
 
     def describe(self):
         #children=[thing.describe() for thing in self.things]
