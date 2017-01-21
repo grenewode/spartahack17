@@ -2,6 +2,7 @@ from random import choice
 # from textblob import TextBlob
 from textblob import Blobber
 from textblob.taggers import NLTKTagger, PatternTagger
+from room import Room
 
 
 def extract_tags(tag_list):
@@ -35,11 +36,14 @@ class Engine:
 
     def __init__(self, types):
         self.types = types
-        print(self.types)
         self.room = None
         self.player = None
         self.it = None
         self.running = True
+
+    def goto_new_room(self):
+        self.room = self.build(Room)
+        self.show_long_description(self.room.describe())
 
     def show_long_description(self, description):
         print(*self.room.describe(), sep='\n')

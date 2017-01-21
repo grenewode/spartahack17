@@ -25,8 +25,7 @@ class Door(Thing):
 
     def enter(self, source, engine):
         if self.get_attr(Open).open:
-            engine.room = engine.build(Room)
-            engine.show_long_description(engine.room.describe())
+            engine.goto_new_room()
         elif self.get_attr(Locked).locked:
             engine.say("The door is locked.")
         else:
