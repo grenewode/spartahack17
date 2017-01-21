@@ -12,7 +12,7 @@ if __name__ == "__main__":
     engine.player = engine.build(Player)
     engine.room = engine.build(Room)
     
-    
+    engine.show_long_description(engine.room.describe())
 
     while engine.running:
         command = input(">> ")
