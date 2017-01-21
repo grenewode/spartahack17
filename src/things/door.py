@@ -8,6 +8,7 @@ class Door(Thing):
     def __init__(self, engine):
         super().__init__(engine)
         self.set_attr(Open())
+        self.set_attr(Locked())
         self.register_action('open', self.open)
         self.register_action('close', self.close)
         self.register_action('enter', self.enter)
@@ -21,5 +22,10 @@ class Door(Thing):
         engine.say("The door is closed.")
 
     def enter(self, source, engine):
-        engine.room = engine.build(Room)
-        engine.show_long_description(engine.room.describe())
+        if self.get_attr(Open).open = True
+            engine.room = engine.build(Room)
+            engine.show_long_description(engine.room.describe())
+        elif self.get_attr(Locked).locked = True
+            engine.say("The door is locked.")
+        else
+            engine.say("The door is closed m8.")
