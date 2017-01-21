@@ -5,8 +5,13 @@ class Engine:
         self.rooms = {}
         self.attributes = {}
 
+        self.room = None
+        self.player = None
+
     def parse_string(self, string):
-        pass
+        words = string.split(" ")
+        if words == ['look']:
+            print(*self.room.describe(), sep='\n')
 
     def report_error(self, error):
         print('error: {}'.format(error))
