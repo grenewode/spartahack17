@@ -1,4 +1,4 @@
-from things import Thing
+from thing import Thing
 
 
 class Takeable(Thing):

@@ -20,9 +20,7 @@ class Room(WorldObject):
         return None
 
     def describe(self):
-        return Description('room', children=[thing.describe()
-                                             for thing in self.things])
-        
-        [self.short()] + [desc + ' in the ' + self.name
-                                 for child in self.children
-                                 for desc in child.long()]
+        children=[thing.describe() for thing in self.things]
+        return ["You are in a room"] #+ [desc + ' in the ' + self.name
+                               #  for child in children
+                                # for desc in child.long()]

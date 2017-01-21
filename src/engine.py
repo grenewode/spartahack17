@@ -19,7 +19,7 @@ class Engine:
         self.running = True
 
     def show_long_description(self, description):
-        print(*self.room.describe().long(), sep='\n')
+        print(*self.room.describe(), sep='\n')
 
     def parse_string(self, string):
         if string == "quit":
