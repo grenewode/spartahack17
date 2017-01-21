@@ -31,6 +31,12 @@ def target_command(tags, callback):
         callback(words[0], words[2])
 
 
+def target_player(tags, callback):
+    words, tags = extract(tags)
+    if len(tags) == 1 and tags == ('VB'):
+        return callback(words[0])
+
+
 class Engine:
 
     def __init__(self):
@@ -48,9 +54,14 @@ class Engine:
             return
 
         tags = TextBlob(string.lower()).pos_tags
-        target_command(tags,
-                       lambda verb, noun:
-                       self.room.search_and_do(noun, verb, self.player, self))
+        if target_command(tags,
+                          lambda verb, noun:
+                          self.room.search_and_do(noun, verb,
+                                                  self.player, self)):
+            return
+
+
+
 
     def report_error(self, error):
         print('error: {}'.format(error))

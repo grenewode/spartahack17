@@ -1,6 +1,3 @@
-from random import choice
-
-
 class Attribute:
 
     def __init__(self):

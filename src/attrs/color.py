@@ -7,7 +7,7 @@ COLORS = ['red', 'green', 'blue']
 class Color(Attribute):
 
     def __init__(self):
-        super().__init__(self)
+        super().__init__()
         self.color = choice(COLORS)
 
     def describe(self):
