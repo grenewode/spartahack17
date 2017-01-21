@@ -1,5 +1,6 @@
 from thing import Thing
 
+
 class Box(Thing):
     name = "box"
 
