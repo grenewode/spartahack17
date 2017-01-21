@@ -15,6 +15,7 @@ class Engine:
         self.room = None
         self.player = None
         self.it = None
+        self.running = True
 
     def show_long_description(self, description):
         print(*self.room.describe().long(), sep='\n')
@@ -23,6 +24,9 @@ class Engine:
         words = string.split(" ")
         if words == ['look']:
             self.show_long_description(self.room.describe())
+            return
+        if words == ['quit']:
+            self.running = False
             return
 
         if len(words) > 2 and words[:2] == ['look', 'at']:
@@ -37,6 +41,7 @@ class Engine:
                 print('You look at the ' + self.it.name)
         else:
             self.player.do_action(words[0], None, self)
+            
 
     def report_error(self, error):
         print('error: {}'.format(error))

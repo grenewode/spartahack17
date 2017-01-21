@@ -11,7 +11,10 @@ if __name__ == "__main__":
 
     engine.player = engine.build(Player)
     engine.room = engine.build(Room)
+    
+    
 
-    while True:
+    while engine.running:
         command = input(">> ")
         engine.parse_string(command)
+        
