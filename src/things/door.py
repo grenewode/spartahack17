@@ -1,5 +1,5 @@
 from attrs.open import Open
-class Door():
+class Door(Things):
     name = "door"
 
     def __init__(self, engine):
