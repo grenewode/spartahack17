@@ -1,6 +1,3 @@
-from room import RoomFactory
-from thing import ThingFactory
-
 class Engine:
 
     def __init__(self):
