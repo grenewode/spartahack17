@@ -1,6 +1,6 @@
 from worldobject import WorldObject
 from thing import Thing
-
+from things.door import Door
 
 class Room(WorldObject):
     name = "Room"
@@ -8,7 +8,9 @@ class Room(WorldObject):
     def __init__(self, engine):
         super().__init__(engine)
         num_things = 3
+        num_doors = 2
         self.things = [engine.build(Thing) for i in range(num_things)]
+        self.things += [engine.build(Door) for j in range(num_doors)]
 
     def search(self, name):
         for thing in self.things:

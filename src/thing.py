@@ -1,10 +1,11 @@
 from worldobject import WorldObject
-
+from attrs.location import Location
 
 class Thing(WorldObject):
 
     def __init__(self, engine):
         super().__init__(engine)
+        self.set_attr(Location())
 
     def describe(self):
         return self.name
