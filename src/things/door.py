@@ -4,11 +4,7 @@ class Door():
     def __init__(self, engine):
         super().__init__(engine)
         self.register_action('open', self.open)
-    def __init__(self, engine):
-        super().__init__(engine)
         self.register_action('close', self.close)
-    def __init__(self, engine):
-        super().__init__(engine)
         self.register_action('enter', self.enter)
 
     def open(self, source, engine):
@@ -19,4 +15,3 @@ class Door():
 
     def enter(self, source, engine):
         source.enter(self)
-    
