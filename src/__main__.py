@@ -19,8 +19,8 @@ def load(directory):
 
 
 if __name__ == "__main__":
-    engine = Engine(load("./src/resources/things/") +
-                    load("./src/resources/things/") +
+    engine = Engine(load("src/resources/things/") +
+                    load("src/resources/things/") +
                     [player.Player, room.Room])
 
     engine.player = engine.build(player.Player)
