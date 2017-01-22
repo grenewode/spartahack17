@@ -6,9 +6,11 @@ import importlib
 import os.path
 
 
-def load(directory):
+def load(rdirectory):
     types = []
-    for mod in glob.glob(directory + "/*.py"):
+    main_path = os.path.dirname(__file__)
+    path = os.path.join(main_path, rdirectory, "*.py")
+    for mod in glob.glob(path):
         try:
             mod = os.path.basename(mod)[:-3]
             module = importlib.import_module('resources.things.' + mod)
@@ -19,8 +21,8 @@ def load(directory):
 
 
 if __name__ == "__main__":
-    engine = Engine(load("src/resources/things/") +
-                    load("src/resources/things/") +
+    engine = Engine(load("resources/things/") +
+                    load("resources/things/") +
                     [player.Player, room.Room])
 
     engine.player = engine.build(player.Player)

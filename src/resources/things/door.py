@@ -1,7 +1,6 @@
 from resources.attrs.open import Open
 from thing import Thing
 from resources.attrs.locked import Locked
-#from room import Room
 
 
 class Door(Thing):
