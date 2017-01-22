@@ -3,6 +3,8 @@ from random import choice
 from textblob import Blobber
 from textblob.taggers import NLTKTagger, PatternTagger
 from room import Room
+from resources.phrases import phrases
+import re
 
 
 def extract_tags(tag_list):
@@ -64,7 +66,10 @@ class Engine:
         print('error: {}'.format(error))
 
     def say(self, message):
-        print(message)
+        if message in phrases:
+            print(choice(phrases[message]))
+        else:
+            print('shit')
 
     def build(self, typeinfo, *args, **kwargs):
         candidates = [world_object_type

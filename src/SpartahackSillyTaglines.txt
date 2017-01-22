@@ -1,6 +1,6 @@
 ﻿Opening:
 What are you doing? Open your eyes.
-Congrats, bud. You broke space. 
+Congrats, bud. You broke space.
 You probably just killed everyone... Nice work there.
 You break it, you buy it. We're going to have to figure out what “buy” means, now that society's collapsed.
 You had one job, not destroy the universe...
@@ -8,7 +8,6 @@ You had one job, not destroy the universe...
 If a “?” is typed:
 Are you really in a position to be asking questions?
 Shut up.
-“(insert question)” - Dumb Bitch
 
 Responses to invalid commands:
 What?
@@ -36,13 +35,13 @@ Touch it. There's no way that's a trap.
 I wonder what that tastes like?
 You feel the urge to touch it.
 It wants you...
-Do it. 
+Do it.
 
 Random:
 By the way, can I just say you look really cute today?
 How you doing? wink
 Are you really still playing? I mean... Do you have some friends you could be hanging out with or something?
-There is no point. To  this or your life. 
+There is no point. To  this or your life.
 Check your phone, I texted you some cheat codes... Made you look.
 
 Death:
@@ -54,5 +53,5 @@ Insert coin to continue. 10... 9.. 8.. 7654321
 Game over. Try again?
 Did you try up-up-down-down-left-right-b-a-start? You seem like you could use a little help.
 Think of this as an opportunity to prepare for the inevitable.
-(Random did you know facts) – Now at least you learned something. 
+(Random did you know facts) – Now at least you learned something.
 Want to try easy mode? Well that was easy mode.
