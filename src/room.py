@@ -1,6 +1,7 @@
 from worldobject import WorldObject
 from thing import Thing
-from things.door import Door
+from resources.things.door import Door
+
 
 class Room(WorldObject):
     name = "Room"
@@ -29,5 +30,5 @@ class Room(WorldObject):
 
     def describe(self):
         #children=[thing.describe() for thing in self.things]
-        return ["You are in a room"] + ['There is a '+child.desc_attrs()+ ' ' + child.describe() + ' in the ' + self.name #+'\n It is '+child.desc_attrs()
+        return ["You are in a room"] + ['There is a '+child.desc_attrs()+ ' ' + child.describe() + ' to the ' + child.location.describe() + ' side of the room.' #+'\n It is '+child.desc_attrs()
                                  for child in self.things]

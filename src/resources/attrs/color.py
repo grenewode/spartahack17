@@ -12,3 +12,5 @@ class Color(Attribute):
 
     def describe(self):
         return self.color
+
+exports = Color

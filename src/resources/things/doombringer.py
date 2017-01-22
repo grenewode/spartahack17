@@ -6,5 +6,6 @@ class DoomBringer(Weapon):
 
     def __init__(self, engine):
         super().__init__(engine)
-        
 
+
+exports = DoomBringer

@@ -8,6 +8,6 @@ class Locked(Attribute):
 
     def describe(self):
         if self.locked:
-            return "The door is locked."
+            return "locked."
         else:
-            return "The door is unlocked."
+            return "unlocked,"

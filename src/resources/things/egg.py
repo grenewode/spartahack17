@@ -1,8 +1,10 @@
 from things.takeable import Takeable
 
 
-class Snowbunny(Takeable):
-    name = "white rabbit"
+class Egg(Takeable):
+    name = "egg"
 
     def __init__(self, engine):
         super().__init__(engine)
+
+exports = Egg

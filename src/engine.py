@@ -2,14 +2,7 @@ from random import choice
 # from textblob import TextBlob
 from textblob import Blobber
 from textblob.taggers import NLTKTagger, PatternTagger
-
-WORLD_OBJECT_TYPES = []
-
-
-def register(*classes):
-    # global WORLD_OBJECT_TYPES
-    for clazz in classes:
-        WORLD_OBJECT_TYPES.append(clazz)
+from room import Room
 
 
 def extract_tags(tag_list):
@@ -41,11 +34,16 @@ def run_command(engine, string, blobber):
 
 class Engine:
 
-    def __init__(self):
+    def __init__(self, types):
+        self.types = types
         self.room = None
         self.player = None
         self.it = None
         self.running = True
+
+    def goto_new_room(self):
+        self.room = self.build(Room)
+        self.show_long_description(self.room.describe())
 
     def show_long_description(self, description):
         print(*self.room.describe(), sep='\n')
@@ -70,6 +68,6 @@ class Engine:
 
     def build(self, typeinfo, *args, **kwargs):
         candidates = [world_object_type
-                      for world_object_type in WORLD_OBJECT_TYPES
+                      for world_object_type in self.types
                       if issubclass(world_object_type, typeinfo)]
         return choice(candidates)(self, *args, **kwargs)

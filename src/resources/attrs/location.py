@@ -12,5 +12,6 @@ class Location(Attribute):
 
     def describe(self):
         return self.location
-        
-    
+
+
+exports = Location
